@@ -30,18 +30,18 @@ export default {
     const schema = yup.object({
       firstName: yup
         .string()
-        .required("სავალდებულოა")
+        .required("ეს ველი სავალდებულოა")
         .min(3, "მინიმუმ 3 სიმბოლო")
         .max(255, "სახელის ველი უნდა შედგებოდეს მაქსიმუმ 255 სიმბოლოსგან"),
       lastName: yup
         .string()
-        .required("სავალდებულოა")
+        .required("ეს ველი სავალდებულოა")
         .min(3, "მინიმუმ 3 სიმბოლო")
-        .max(255, "სახელის ველი უნდა შედგებოდეს მაქსიმუმ 255 სიმბოლოსგან"),
+        .max(255, "გვარის ველი უნდა შედგებოდეს მაქსიმუმ 255 სიმბოლოსგან"),
       email: yup
         .string()
         .matches(/.*\@redberry.ge$/, "უნდა მთავრდებოდეს @redberry.ge-ით")
-        .required("სავალდებულო"),
+        .required("ეს ველი სავალდებულოა"),
     });
     const data = {
       firstName: localStorage.getItem("firstName") || "",
