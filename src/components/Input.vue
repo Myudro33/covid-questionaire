@@ -7,7 +7,7 @@
     type="text"
     :placeholder="placeholder"
     :value="modelValue"
-    @input="($event) => $emit('update:modelValue', $event.target.value)"
+    @input="changeValue"
   />
   <ErrorMessage class="text-[#F15524] ml-4" :name="id" />
 </template>
@@ -19,6 +19,15 @@ export default {
   components: {
     Field,
     ErrorMessage,
+  },
+  methods: {
+    changeValue($event) {
+      this.$emit("update:modelValue", $event.target.value);
+      this.$store.dispatch("personal/storeLocalData", {
+        name: $event.target.name,
+        value: $event.target.value,
+      });
+    },
   },
 };
 </script>
