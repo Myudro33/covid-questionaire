@@ -3,9 +3,9 @@
     <navbar :page="1" />
     <div class="w-full h-auto flex justify-between">
       <Form @submit="handleSubmit" :validation-schema="schema" class="flex flex-col">
-        <input-component id="firstName" label="სახელი*" />
-        <input-component id="lastName" label="გვარი*" />
-        <input-component id="email" label="მეილი*" />
+        <input-component v-model="data.firstName" id="firstName" label="სახელი*" />
+        <input-component v-model="data.lastName" id="lastName" label="გვარი*" />
+        <input-component v-model="data.email" id="email" label="მეილი*" />
         <div class="w-[270px] flex flex-col mt-28">
           <hr class="border-[#000000] mb-5 w-11/12" />
           <p class="text-[#626262]">*-ით მონიშნული ველების შევსება სავალდებულოა</p>
@@ -43,12 +43,19 @@ export default {
         .matches(/.*\@redberry.ge$/, "უნდა მთავრდებოდეს @redberry.ge-ით")
         .required("სავალდებულო"),
     });
+    const data = {
+      firstName: localStorage.getItem("firstName") || "",
+      lastName: localStorage.getItem("lastName") || "",
+      email: localStorage.getItem("email") || "",
+    };
     return {
       schema,
+      data,
     };
   },
   methods: {
     handleSubmit() {
+      this.$store.dispatch("personal/storePersonalData", this.data);
       this.$router.push({ path: "/" });
     },
   },

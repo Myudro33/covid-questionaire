@@ -1,9 +1,10 @@
 import { createStore } from "vuex";
+import personalModule from "./personal/index.js";
 
 const store  = createStore({
-    state:{
-        
-    }
+   modules:{
+        personal:personalModule
+   }
 })
 
 export default store
