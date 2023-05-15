@@ -85,7 +85,7 @@ export default {
     return {
       covid: localStorage.getItem("had_covid") || null,
       vaccined: localStorage.getItem("vaccined") || null,
-      date: localStorage.getItem("date") || null,
+      date: localStorage.getItem("had_covid_date") || null,
       test_number: localStorage.getItem("vaccinated_date") || null,
       antibody: localStorage.getItem("antibody") || null,
     };
