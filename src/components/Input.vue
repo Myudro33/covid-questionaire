@@ -1,7 +1,7 @@
 <template>
-  <label-component :label="id" :title="label" />
+  <label-component v-if="label" :label="id" :title="label" />
   <Field
-    class="w-[513px] h-[50px] px-5 border border-[#232323] text-lg"
+    class="w-[513px] h-[50px] px-5 border border-[#232323] text-lg mt-4"
     :id="id"
     :name="id"
     type="text"
