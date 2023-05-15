@@ -1,16 +1,16 @@
 <template>
-  <div class="w-full h-screen flex-col bg-[#EAEAEA] flex items-center overflow-hidden">
+  <div class="w-full h-screen flex-col flex items-center overflow-hidden">
     <transition appear>
       <img class="mt-80 z-30" src="../assets/postman.svg" alt="logo" />
     </transition>
     <div class="w-60 h-24 bg-[#EAEAEA] z-20"></div>
     <transition name="text">
-    <RouterLink v-if="link" to="/personal">
-      <h1 class="link text-center tracking-widest font-bold text-3xl">
-        კითხვარის <br />
-        დაწყება
-      </h1>
-    </RouterLink>
+      <RouterLink v-if="link" to="/personal">
+        <h1 class="link text-center tracking-widest font-bold text-3xl">
+          კითხვარის <br />
+          დაწყება
+        </h1>
+      </RouterLink>
     </transition>
   </div>
 </template>
@@ -19,20 +19,20 @@
 export default {
   data() {
     return {
-      link: false
-    }
+      link: false,
+    };
   },
   methods: {
     showLink() {
       setTimeout(() => {
-        this.link = true
-      }, 1000)
-    }
+        this.link = true;
+      }, 1000);
+    },
   },
   created() {
-    this.showLink()
-  }
-}
+    this.showLink();
+  },
+};
 </script>
 
 <style scoped>

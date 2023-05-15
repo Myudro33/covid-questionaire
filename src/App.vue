@@ -1,7 +1,13 @@
 <script setup>
-import { RouterView } from 'vue-router'
+import { RouterView } from "vue-router";
 </script>
 
 <template>
   <RouterView />
 </template>
+
+<style>
+body {
+  background-color: #eaeaea;
+}
+</style>
