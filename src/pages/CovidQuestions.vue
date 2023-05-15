@@ -29,38 +29,57 @@
           <div>
             <radio-input
               :rules="'required'"
-              v-model="vaccined"
-              id="vaccined"
+              v-model="antibody_test"
+              id="antibody_test"
               labelValue="კი"
               value="yes"
             />
-            <radio-input v-model="vaccined" id="vaccined" labelValue="არა" value="no" />
+            <radio-input
+              v-model="antibody_test"
+              id="antibody_test"
+              labelValue="არა"
+              value="no"
+            />
           </div>
         </div>
-        <ErrorMessage class="text-[#F15524] my-4" :name="'vaccined'" />
-        <div v-if="vaccined === 'no' && covid === 'yes'" class="mt-11 h-22 flex flex-col">
+        <ErrorMessage class="text-[#F15524] my-4" :name="'antibody_test'" />
+        <div
+          v-if="antibody_test === 'no' && covid === 'yes'"
+          class="mt-11 h-22 flex flex-col"
+        >
           <label-component
             :label="'antibody'"
             :title="'მიუთითე მიახლოებითი პერიოდი (დღე/თვე/წელი) როდის გქონდა Covid-19*'"
           />
-          <input-component
-            placeholder="დდ/თთ/წწ"
-            :rules="'required|date'"
-            v-model="date"
-            id="had_covid_date"
-          />
+          <div class="ml-4">
+            <input-component
+              placeholder="დდ/თთ/წწ"
+              :rules="'required|date'"
+              v-model="date"
+              id="had_covid_date"
+            />
+          </div>
         </div>
-        <div v-if="vaccined === 'yes' && covid === 'yes'" class="mt-11 flex flex-col">
+        <div
+          v-if="antibody_test === 'yes' && covid === 'yes'"
+          class="mt-11 flex flex-col"
+        >
           <label-component
             :label="'antibody'"
             :title="'თუ გახსოვს, გთხოვ მიუთითე ტესტის მიახლოებითი რიცხვი და ანტისხეულების რაოდენობა*'"
           />
-          <input-component placeholder="რიცხვი" v-model="test_number" id="test_number" />
-          <input-component
-            placeholder="ანტისხეულების რაოდენობა"
-            v-model="antibody"
-            id="antibody"
-          />
+          <div class="ml-4">
+            <input-component
+              placeholder="რიცხვი"
+              v-model="test_number"
+              id="test_number"
+            />
+            <input-component
+              placeholder="ანტისხეულების რაოდენობა"
+              v-model="antibody"
+              id="antibody"
+            />
+          </div>
         </div>
         <div class="absolute bottom-12 left-1/2 w-28 flex justify-between">
           <button @click="redirectBack">
@@ -84,7 +103,7 @@ export default {
   data() {
     return {
       covid: localStorage.getItem("had_covid") || null,
-      vaccined: localStorage.getItem("vaccined") || null,
+      antibody_test: localStorage.getItem("antibody_test") || null,
       date: localStorage.getItem("had_covid_date") || null,
       test_number: localStorage.getItem("vaccinated_date") || null,
       antibody: localStorage.getItem("antibody") || null,
@@ -94,13 +113,13 @@ export default {
     covid: (value) => {
       localStorage.setItem("had_covid", value);
     },
-    vaccined: (value) => {
-      localStorage.setItem("vaccined", value);
+    antibody_test: (value) => {
+      localStorage.setItem("antibody_test", value);
     },
   },
   methods: {
     onSubmit() {
-      this.$router.push({ path: "/vaccine" });
+      this.$router.push({ path: "/vaccination" });
     },
     redirectBack() {
       this.$router.push({ path: "/personal" });
@@ -108,12 +127,3 @@ export default {
   },
 };
 </script>
-
-<style scoped>
-input[type="radio"] {
-  width: 23px;
-  height: 23px;
-  accent-color: #232323;
-  margin: 10px;
-}
-</style>
