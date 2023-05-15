@@ -10,11 +10,12 @@
     "format": "prettier --write src/"
   },
   "dependencies": {
-    "vee-validate": "^4.9.3",
+    "@vee-validate/i18n": "^4.5.11",
+    "@vee-validate/rules": "^4.5.11",
+    "vee-validate": "^4.5.11",
     "vue": "^3.2.47",
     "vue-router": "^4.1.6",
-    "vuex": "^4.0.2",
-    "yup": "^1.1.1"
+    "vuex": "^4.0.2"
   },
   "devDependencies": {
     "@rushstack/eslint-patch": "^1.2.0",
