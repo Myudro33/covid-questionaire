@@ -17,6 +17,11 @@ const router = createRouter({
       path:'/covid-questions',
       name:'covid',
       component:()=>import('../pages/CovidQuestions.vue')
+    },
+    {
+      path:'/vaccination',
+      name:'vaccination',
+      component:()=>import('../pages/Vaccination.vue')
     }
   ]
 })
