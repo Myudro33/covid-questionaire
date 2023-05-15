@@ -40,7 +40,10 @@ export default {
         .max(255, "გვარის ველი უნდა შედგებოდეს მაქსიმუმ 255 სიმბოლოსგან"),
       email: yup
         .string()
-        .matches(/.*\@redberry.ge$/, "უნდა მთავრდებოდეს @redberry.ge-ით")
+        .matches(
+          /.*\@redberry.ge$/,
+          "გთხოვთ დარეგისტრირდეთ Redberry-ს მეილით (youremail@redberry.ge)"
+        )
         .required("ეს ველი სავალდებულოა"),
     });
     const data = {
@@ -56,7 +59,7 @@ export default {
   methods: {
     handleSubmit() {
       this.$store.dispatch("personal/storePersonalData", this.data);
-      this.$router.push({ path: "/" });
+      this.$router.push({ path: "/covid-questions" });
     },
   },
   components: { Form, PersonalPageAnimation, Field, ErrorMessage },
