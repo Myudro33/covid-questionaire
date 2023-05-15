@@ -5,6 +5,7 @@
     :id="id"
     :name="id"
     type="text"
+    :rules="rules"
     :placeholder="placeholder"
     :value="modelValue"
     @input="changeValue"
@@ -15,7 +16,7 @@
 <script>
 import { Field, ErrorMessage } from "vee-validate";
 export default {
-  props: ["modelValue", "id", "placeholder", "label"],
+  props: ["modelValue", "id", "placeholder", "label", "rules"],
   components: {
     Field,
     ErrorMessage,
