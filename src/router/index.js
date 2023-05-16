@@ -32,6 +32,12 @@ const router = createRouter({
       path:'/thanks',
       name:'thanks',
       component:()=>import('../pages/Thanks.vue')
+    },
+    {
+      path:'/:pathMatch(.*)*',
+      name:'notFound',
+      component:()=>import('../pages/NotFound.vue')
+
     }
   ]
 })
