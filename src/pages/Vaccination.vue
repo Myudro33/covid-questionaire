@@ -13,6 +13,7 @@
             value="yes"
           />
           <radio-input v-model="vaccinated" id="vaccinated" labelValue="არა" value="no" />
+          <ErrorMessage class="text-[#F15524]" name="vaccinated" />
         </div>
         <div class="mt-12" v-if="vaccinated === 'yes'">
           <label-component :label="'vaccinated'" :title="'აირჩიე რა ეტაპზე ხარ?*'" />
@@ -35,6 +36,7 @@
             labelValue="პირველი დოზა და არ დავრეგისტრირებულვარ მეორეზე"
             value="first_dosage_and_not_registered_yet"
           />
+          <ErrorMessage class="text-[#F15524]" name="vaccination_stage" />
         </div>
         <div class="mt-12" v-if="vaccinated === 'no'">
           <label-component :label="'register'" :title="'რას ელოდები?*'" />
@@ -57,6 +59,7 @@
             labelValue="გადატანილი მაქვს და ვგეგმავ აცრას"
             value="had_already"
           />
+          <ErrorMessage class="text-[#F15524]" name="waiting_for" />
         </div>
         <Feedback
           v-if="
@@ -77,7 +80,7 @@
           <button @click="redirectBack">
             <img class="rotate-180" src="../assets/vector.svg" alt="" />
           </button>
-          <button :disabled="!meta.valid" type="submit">
+          <button type="submit">
             <img src="../assets/vector.svg" alt="" />
           </button>
         </div>
