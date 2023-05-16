@@ -120,6 +120,12 @@ export default {
     },
     onSubmit() {
       this.$router.push({ path: "/advices" });
+      this.$store.dispatch("vaccination/hadVaccine", this.vaccinated);
+      if (this.vaccinated === "yes") {
+        this.$store.dispatch("vaccination/vaccinationStage", this.vaccination_stage);
+      } else {
+        this.$store.dispatch("vaccination/waiting", this.waiting_for);
+      }
     },
   },
 };
