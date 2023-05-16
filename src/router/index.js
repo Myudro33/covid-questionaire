@@ -22,6 +22,11 @@ const router = createRouter({
       path:'/vaccination',
       name:'vaccination',
       component:()=>import('../pages/Vaccination.vue')
+    },
+    {
+      path:'/advices',
+      name:'advices',
+      component:()=>import('../pages/Advices.vue')
     }
   ]
 })
