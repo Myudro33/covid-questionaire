@@ -51,7 +51,7 @@
             :label="'antibody'"
             :title="'მიუთითე მიახლოებითი პერიოდი (დღე/თვე/წელი) როდის გქონდა Covid-19*'"
           />
-          <div class="ml-4">
+          <div class="ml-4 w-[513px]">
             <input-component
               placeholder="დდ/თთ/წწ"
               :rules="'required|date'"
@@ -70,6 +70,7 @@
           />
           <div class="ml-4">
             <input-component
+              :rules="'date'"
               placeholder="რიცხვი"
               v-model="test_number"
               id="test_number"
@@ -85,7 +86,7 @@
           <button @click="redirectBack">
             <img class="rotate-180" src="../assets/vector.svg" alt="" />
           </button>
-          <button :disabled="!meta.valid" type="submit">
+          <button type="submit">
             <img src="../assets/vector.svg" alt="" />
           </button>
         </div>
@@ -105,7 +106,7 @@ export default {
       covid: localStorage.getItem("had_covid") || null,
       antibody_test: localStorage.getItem("antibody_test") || null,
       date: localStorage.getItem("had_covid_date") || null,
-      test_number: localStorage.getItem("vaccinated_date") || null,
+      test_number: localStorage.getItem("test_number") || null,
       antibody: localStorage.getItem("antibody") || null,
     };
   },
@@ -120,6 +121,16 @@ export default {
   methods: {
     onSubmit() {
       this.$router.push({ path: "/vaccination" });
+      this.$store.dispatch("covid_questions/hadCovid", this.covid);
+      if (this.covid === "yes") {
+        this.$store.dispatch("covid_questions/hadAntibodyTest", this.antibody_test);
+        if (this.antibody_test === "yes") {
+          this.$store.dispatch("covid_questions/antibodies", this.antibody);
+          this.$store.dispatch("covid_questions/testDate", this.test_number);
+        } else {
+          this.$store.dispatch("covid_questions/sicknessDate", this.date);
+        }
+      }
     },
     redirectBack() {
       this.$router.push({ path: "/personal" });
