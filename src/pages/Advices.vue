@@ -142,6 +142,10 @@ export default {
   methods: {
     onSubmit() {
       this.$router.push({ path: "/thanks" });
+      this.$store.dispatch("advices/nonFormalMeetings", this.frequency);
+      this.$store.dispatch("advices/daysFromOffice", this.work_from_office);
+      this.$store.dispatch("advices/aboutMeetings", this.about_meet);
+      this.$store.dispatch("advices/yourOpinion", this.environment);
     },
     redirectBack() {
       this.$router.push({ path: "/vaccination" });
