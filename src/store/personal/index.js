@@ -1,13 +1,35 @@
-import actions from './actions.js'
-
 export default {
     namespaced:true,
     state(){
        return{
-            firstName:'',
-            lastName:'',
-            email:''
+        first_name: "",
+        last_name: "",
+        email: "",
        }
     },
-    actions,
+    mutations:{
+        firstName(state,payload){
+            state.first_name=payload
+        },
+        lastName(state,payload){
+            state.last_name=payload
+        },
+        email(state,payload){
+            state.email=payload
+        }
+    },
+    actions:{
+        firstName(context,payload){
+            context.commit('firstName',payload)
+        },
+        lastName(context,payload){
+            context.commit('lastName',payload)
+        },
+        email(context,payload){
+            context.commit('email',payload)
+        },
+        storeLocalData(_,payload){
+            localStorage.setItem(payload.name,payload.value)
+        }
+    },
 }   

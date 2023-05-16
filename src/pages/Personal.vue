@@ -5,19 +5,19 @@
       <Form @submit="onSubmit" v-slot="{ meta }" class="flex flex-col">
         <input-component
           :rules="'required|min:3|max:255'"
-          v-model="data.firstName"
+          v-model="firstName"
           id="firstName"
           label="სახელი*"
         />
         <input-component
           :rules="'required|min:3|max:255'"
-          v-model="data.lastName"
+          v-model="lastName"
           id="lastName"
           label="გვარი*"
         />
         <input-component
           :rules="'required|email|redberry_email'"
-          v-model="data.email"
+          v-model="email"
           id="email"
           label="მეილი*"
         />
@@ -41,18 +41,18 @@ import { Form, Field, ErrorMessage } from "vee-validate";
 import PersonalPageAnimation from "../components/PersonalPageAnimation.vue";
 export default {
   data() {
-    const data = {
+    return {
       firstName: localStorage.getItem("firstName") || "",
       lastName: localStorage.getItem("lastName") || "",
       email: localStorage.getItem("email") || "",
     };
-    return {
-      data,
-    };
   },
   methods: {
     onSubmit() {
-      this.$store.dispatch("personal/storePersonalData", this.data);
+      this.$store.dispatch("personal/firstName", this.firstName);
+      this.$store.dispatch("personal/lastName", this.lastName);
+      this.$store.dispatch("personal/email", this.email);
+
       this.$router.push({ path: "/covid-questions" });
     },
   },
