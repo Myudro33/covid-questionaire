@@ -86,8 +86,14 @@
           <button @click="redirectBack">
             <img class="rotate-180" src="../assets/vector.svg" alt="" />
           </button>
-          <button type="submit">
-            <img src="../assets/vector.svg" alt="" />
+          <button :disabled="!meta.valid" type="submit">
+            <img v-if="meta.valid" src="../assets/vector.svg" alt="" />
+            <img
+              v-else
+              class="cursor-not-allowed"
+              src="../assets/vector-gray.svg"
+              alt=""
+            />
           </button>
         </div>
       </Form>

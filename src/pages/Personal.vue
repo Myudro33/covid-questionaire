@@ -27,7 +27,13 @@
         </div>
         <div class="absolute bottom-12 left-1/2">
           <button :disabled="!meta.valid" type="submit">
-            <img src="../assets/vector.svg" alt="" />
+            <img v-if="meta.valid" src="../assets/vector.svg" alt="" />
+            <img
+              v-else
+              class="cursor-not-allowed"
+              src="../assets/vector-gray.svg"
+              alt=""
+            />
           </button>
         </div>
       </Form>

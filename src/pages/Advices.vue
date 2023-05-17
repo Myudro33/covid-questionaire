@@ -95,8 +95,9 @@
           ></textarea>
         </div>
         <button
+          :disabled="!meta.valid"
           type="submit"
-          class="bg-[#208298] text-white text-lg font-bold rounded-[42px] w-44 h-14 my-10 absolute right-0 mt-14"
+          class="bg-[#208298] disabled:bg-[#20829880] disabled:cursor-not-allowed text-white text-lg font-bold rounded-[42px] w-44 h-14 my-10 absolute right-0 mt-14"
         >
           დასრულება
         </button>
