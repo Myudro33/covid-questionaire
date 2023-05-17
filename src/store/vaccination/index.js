@@ -2,9 +2,9 @@ export default {
     namespaced:true,
     state(){
        return{
-        had_vaccine: "",
-        vaccination_stage: "",
-        i_am_waiting:""
+        had_vaccine: localStorage.getItem('vaccinated')||"",
+        vaccination_stage: localStorage.getItem('vaccination_stage')||"",
+        i_am_waiting:localStorage.getItem('waiting_for')||""
        }
     },
     mutations:{

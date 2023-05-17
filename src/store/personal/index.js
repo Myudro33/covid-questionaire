@@ -2,9 +2,9 @@ export default {
     namespaced:true,
     state(){
        return{
-        first_name: "",
-        last_name: "",
-        email: "",
+        first_name: localStorage.getItem('firstName')||"",
+        last_name: localStorage.getItem('lastName')||"",
+        email: localStorage.getItem('email')||"",
        }
     },
     mutations:{

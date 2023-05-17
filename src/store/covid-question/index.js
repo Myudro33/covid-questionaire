@@ -2,13 +2,13 @@ export default {
     namespaced:true,
     state(){
         return{    
-            had_covid: "",
-            had_antibody_test: '',
+            had_covid: localStorage.getItem('had_covid')||"",
+            had_antibody_test: localStorage.getItem('antibody_test')||"",
             antibodies: {
-              test_date: "",
-              number: null,
+              test_date:localStorage.getItem('test_number')||"",
+              number: localStorage.getItem('antibody')||null,
             },
-            covid_sickness_date: "",
+            covid_sickness_date: localStorage.getItem('had_covid_date')||"",
         }
     },
     mutations:{
@@ -27,7 +27,7 @@ export default {
 
         },
         antibodies(state,payload){
-                state.antibodies.number = payload
+                state.antibodies.number = Number(payload)
         },
         sicknessDate(state,payload){
             state.covid_sickness_date = payload
