@@ -14,7 +14,6 @@ import Label from './components/Label.vue'
 
 
 
-
 const app = createApp(App)
 
 app.use(router)
@@ -25,5 +24,6 @@ app.component('radio-input',RadioInput)
 app.component('label-component',Label)
 
 
+export const route = router
 
 app.mount('#app')
