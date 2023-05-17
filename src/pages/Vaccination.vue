@@ -51,13 +51,13 @@
             v-model="waiting_for"
             id="waiting_for"
             labelValue="არ ვგეგმავ"
-            value="not_planned"
+            value="not_planning"
           />
           <radio-input
             v-model="waiting_for"
             id="waiting_for"
             labelValue="გადატანილი მაქვს და ვგეგმავ აცრას"
-            value="had_already"
+            value="had_covid_and_planning_to_be_vaccinated"
           />
           <ErrorMessage class="text-[#F15524]" name="waiting_for" />
         </div>
