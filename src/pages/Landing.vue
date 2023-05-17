@@ -31,6 +31,7 @@ export default {
   },
   created() {
     this.showLink();
+    localStorage.clear();
   },
 };
 </script>
