@@ -26,13 +26,13 @@
             v-model="frequency"
             id="frequency"
             labelValue="ორ კვირაში ერთხელ"
-            value="once_in_two_weeks"
+            value="once_in_a_two_weeks"
           />
           <radio-input
             v-model="frequency"
             id="frequency"
             labelValue="თვეში ერთხელ"
-            value="onco_a_month"
+            value="once_in_a_month"
           />
           <ErrorMessage class="text-[#F15524]" name="frequency" />
         </div>
@@ -142,11 +142,11 @@ export default {
   },
   methods: {
     onSubmit() {
-      this.$router.push({ path: "/thanks" });
       this.$store.dispatch("advices/nonFormalMeetings", this.frequency);
       this.$store.dispatch("advices/daysFromOffice", this.work_from_office);
       this.$store.dispatch("advices/aboutMeetings", this.about_meet);
       this.$store.dispatch("advices/yourOpinion", this.environment);
+      this.$store.dispatch("advices/postData", this.$store._state.data);
     },
     redirectBack() {
       this.$router.push({ path: "/vaccination" });

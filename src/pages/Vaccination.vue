@@ -77,7 +77,7 @@
           :message="'had_already'"
         />
         <div class="absolute bottom-12 left-1/2 w-28 flex justify-between">
-          <button @click="redirectBack">
+          <button type="button" @click="redirectBack">
             <img class="rotate-180" src="../assets/vector.svg" alt="" />
           </button>
           <button :disabled="!meta.valid" type="submit">
