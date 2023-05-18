@@ -14,21 +14,21 @@
 </template>
 
 <script>
-import { Field, ErrorMessage } from "vee-validate";
+import { Field, ErrorMessage } from 'vee-validate'
 export default {
-  props: ["modelValue", "id", "placeholder", "label", "rules"],
+  props: ['modelValue', 'id', 'placeholder', 'label', 'rules'],
   components: {
     Field,
-    ErrorMessage,
+    ErrorMessage
   },
   methods: {
     changeValue($event) {
-      this.$emit("update:modelValue", $event.target.value);
-      this.$store.dispatch("personal/storeLocalData", {
+      this.$emit('update:modelValue', $event.target.value)
+      this.$store.dispatch('personal/storeLocalData', {
         name: $event.target.name,
-        value: $event.target.value,
-      });
-    },
-  },
-};
+        value: $event.target.value
+      })
+    }
+  }
+}
 </script>

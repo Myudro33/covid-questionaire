@@ -10,6 +10,6 @@
 
 <script>
 export default {
-  props: ["page"],
-};
+  props: ['page']
+}
 </script>
