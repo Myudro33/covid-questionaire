@@ -19,20 +19,21 @@
 export default {
   data() {
     return {
-      link: false,
-    };
+      link: false
+    }
   },
   methods: {
     showLink() {
       setTimeout(() => {
-        this.link = true;
-      }, 1000);
-    },
+        this.link = true
+      }, 1000)
+    }
   },
   created() {
-    this.showLink();
-  },
-};
+    this.showLink()
+    localStorage.clear()
+  }
+}
 </script>
 
 <style scoped>

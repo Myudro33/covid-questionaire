@@ -9,35 +9,34 @@ const router = createRouter({
       component: () => import('../pages/Landing.vue')
     },
     {
-      path:'/personal',
-      name:'personal',
-      component: ()=>import('../pages/Personal.vue')
+      path: '/personal',
+      name: 'personal',
+      component: () => import('../pages/Personal.vue')
     },
     {
-      path:'/covid-questions',
-      name:'covid',
-      component:()=>import('../pages/CovidQuestions.vue')
+      path: '/covid-questions',
+      name: 'covid',
+      component: () => import('../pages/CovidQuestions.vue')
     },
     {
-      path:'/vaccination',
-      name:'vaccination',
-      component:()=>import('../pages/Vaccination.vue')
+      path: '/vaccination',
+      name: 'vaccination',
+      component: () => import('../pages/Vaccination.vue')
     },
     {
-      path:'/advices',
-      name:'advices',
-      component:()=>import('../pages/Advices.vue')
+      path: '/advices',
+      name: 'advices',
+      component: () => import('../pages/Advices.vue')
     },
     {
-      path:'/thanks',
-      name:'thanks',
-      component:()=>import('../pages/Thanks.vue')
+      path: '/thanks',
+      name: 'thanks',
+      component: () => import('../pages/Thanks.vue')
     },
     {
-      path:'/:pathMatch(.*)*',
-      name:'notFound',
-      component:()=>import('../pages/NotFound.vue')
-
+      path: '/:pathMatch(.*)*',
+      name: 'notFound',
+      component: () => import('../pages/NotFound.vue')
     }
   ]
 })

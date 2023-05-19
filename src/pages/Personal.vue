@@ -5,19 +5,19 @@
       <Form @submit="onSubmit" v-slot="{ meta }" class="flex flex-col">
         <input-component
           :rules="'required|min:3|max:255'"
-          v-model="data.firstName"
+          v-model="firstName"
           id="firstName"
           label="სახელი*"
         />
         <input-component
           :rules="'required|min:3|max:255'"
-          v-model="data.lastName"
+          v-model="lastName"
           id="lastName"
           label="გვარი*"
         />
         <input-component
           :rules="'required|email|redberry_email'"
-          v-model="data.email"
+          v-model="email"
           id="email"
           label="მეილი*"
         />
@@ -27,7 +27,8 @@
         </div>
         <div class="absolute bottom-12 left-1/2">
           <button :disabled="!meta.valid" type="submit">
-            <img src="../assets/vector.svg" alt="" />
+            <img v-if="meta.valid" src="../assets/vector.svg" alt="" />
+            <img v-else class="cursor-not-allowed" src="../assets/vector-gray.svg" alt="" />
           </button>
         </div>
       </Form>
@@ -37,25 +38,25 @@
 </template>
 
 <script>
-import { Form, Field, ErrorMessage } from "vee-validate";
-import PersonalPageAnimation from "../components/PersonalPageAnimation.vue";
+import { Form, Field, ErrorMessage } from 'vee-validate'
+import PersonalPageAnimation from '../components/PersonalPageAnimation.vue'
 export default {
   data() {
-    const data = {
-      firstName: localStorage.getItem("firstName") || "",
-      lastName: localStorage.getItem("lastName") || "",
-      email: localStorage.getItem("email") || "",
-    };
     return {
-      data,
-    };
+      firstName: localStorage.getItem('firstName') || '',
+      lastName: localStorage.getItem('lastName') || '',
+      email: localStorage.getItem('email') || ''
+    }
   },
   methods: {
     onSubmit() {
-      this.$store.dispatch("personal/storePersonalData", this.data);
-      this.$router.push({ path: "/covid-questions" });
-    },
+      this.$store.dispatch('personal/firstName', this.firstName)
+      this.$store.dispatch('personal/lastName', this.lastName)
+      this.$store.dispatch('personal/email', this.email)
+
+      this.$router.push({ path: '/covid-questions' })
+    }
   },
-  components: { Form, PersonalPageAnimation, Field, ErrorMessage },
-};
+  components: { Form, PersonalPageAnimation, Field, ErrorMessage }
+}
 </script>

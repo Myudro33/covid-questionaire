@@ -18,16 +18,16 @@
 </template>
 
 <script>
-import { Field } from "vee-validate";
+import { Field } from 'vee-validate'
 export default {
-  props: ["modelValue", "id", "rules", "labelValue", "value"],
+  props: ['modelValue', 'id', 'rules', 'labelValue', 'value'],
   data() {
     return {
-      selected: localStorage.getItem(this.id) === this.value,
-    };
+      selected: localStorage.getItem(this.id) === this.value
+    }
   },
   components: {
-    Field,
-  },
-};
+    Field
+  }
+}
 </script>
