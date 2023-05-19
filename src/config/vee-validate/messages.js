@@ -18,11 +18,11 @@ configure({
         email: 'ეს ველი უნდა იყოს მეილის ფორმატში',
         min: '{field} ველი უნდა შედგებოდეს  მინიმუმ 0:{min} სიმბოლოსგან',
         max: '{field} ველი უნდა შედგებოდეს  მაქსიმუმ 0:{min} სიმბოლოსგან',
-        redberry_email: 'ეს ველი უნდა იყოს redberry-ის მეილის ფორმატში'
+        redberry_email: '{field}ს ველი უნდა იყოს redberry-ის მეილის ფორმატში'
       },
       names: {
-        username: 'სახელის',
-        lastname: 'გვარის',
+        firstName: 'სახელის',
+        lastName: 'გვარის',
         email: 'მეილი'
       }
     }
