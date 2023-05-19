@@ -68,7 +68,7 @@
             />
           </div>
         </div>
-        <div class="absolute bottom-12 left-1/2 w-28 flex justify-between">
+        <div class="absolute bottom-12 left-1/2 w-28 flex justify-between z-50">
           <button type="button" @click="redirectBack">
             <img class="rotate-180" src="../assets/vector.svg" alt="" />
           </button>

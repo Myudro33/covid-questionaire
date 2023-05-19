@@ -22,5 +22,5 @@ defineRule('date', (value) => {
   if (dateRegex.test(value)) {
     return true
   }
-  return 'რიცხი უნდა ჩაიწეროს დღე/თვე/წელი ფორმატით'
+  return false
 })

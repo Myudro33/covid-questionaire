@@ -25,7 +25,7 @@
           <hr class="border-[#000000] mb-5 w-11/12" />
           <p class="text-[#626262]">*-ით მონიშნული ველების შევსება სავალდებულოა</p>
         </div>
-        <div class="absolute bottom-12 left-1/2">
+        <div class="absolute bottom-12 left-1/2 z-50">
           <button :disabled="!meta.valid" type="submit">
             <img v-if="meta.valid" src="../assets/vector.svg" alt="" />
             <img v-else class="cursor-not-allowed" src="../assets/vector-gray.svg" alt="" />

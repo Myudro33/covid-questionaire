@@ -37,8 +37,9 @@ export default {
         data.had_antibody_test = payload.covid_questions.had_antibody_test
         if (data.had_antibody_test) {
           if (
-            (payload.covid_questions.antibodies.test_date !== '',
-            payload.covid_questions.antibodies.number !== null)
+            payload.covid_questions.antibodies.test_date !== '' &&
+            payload.covid_questions.antibodies.test_date !== null &&
+            payload.covid_questions.antibodies.number !== null
           ) {
             data.antibodies = {
               test_date: payload.covid_questions.antibodies.test_date,
