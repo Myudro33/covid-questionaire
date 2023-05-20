@@ -69,12 +69,15 @@
           :message="'lets_register'"
         />
         <Feedback
-          v-if="vaccinated === 'no' && waiting_for === 'not_planned'"
-          :message="'not_planned'"
+          v-if="vaccinated === 'no' && waiting_for === 'not_planning'"
+          :message="'not_planning'"
         />
         <Feedback
-          v-if="vaccinated === 'no' && waiting_for === 'had_already'"
-          :message="'had_already'"
+          v-if="
+            vaccinated === 'no' &&
+            waiting_for === 'had_covid_and_planning_to_be_vaccinated'
+          "
+          :message="'had_covid_and_planning_to_be_vaccinated'"
         />
         <div class="absolute bottom-12 left-1/2 w-28 flex justify-between z-50">
           <button type="button" @click="redirectBack">
