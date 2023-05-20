@@ -126,7 +126,7 @@ export default {
   },
   methods: {
     onSubmit() {
-      this.$router.push({ path: "/vaccination" });
+      this.$router.push({ name: "vaccination" });
       this.$store.dispatch("covid_questions/hadCovid", this.covid);
       if (this.covid === "yes") {
         this.$store.dispatch("covid_questions/hadAntibodyTest", this.antibody_test);
@@ -139,7 +139,7 @@ export default {
       }
     },
     redirectBack() {
-      this.$router.push({ path: "/personal" });
+      this.$router.push({ name: "personal" });
     },
   },
 };

@@ -149,7 +149,7 @@ export default {
       this.$store.dispatch("advices/postData", this.$store._state.data);
     },
     redirectBack() {
-      this.$router.push({ path: "/vaccination" });
+      this.$router.push({ name: "advices" });
     },
   },
 };

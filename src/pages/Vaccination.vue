@@ -125,10 +125,10 @@ export default {
   },
   methods: {
     redirectBack() {
-      this.$router.push({ path: "/covid-questions" });
+      this.$router.push({ name: "covid" });
     },
     onSubmit() {
-      this.$router.push({ path: "/advices" });
+      this.$router.push({ name: "advices" });
       this.$store.dispatch("vaccination/hadVaccine", this.vaccinated);
       if (this.vaccinated === "yes") {
         this.$store.dispatch("vaccination/vaccinationStage", this.vaccination_stage);

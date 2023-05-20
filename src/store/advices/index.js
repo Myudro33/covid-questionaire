@@ -68,7 +68,7 @@ export default {
       try {
         const response = await axios.post('https://covid19.devtest.ge/api/create', data)
         if (response.status === 201) {
-          route.push({ path: '/thanks' })
+          route.push({ name: 'thanks' })
         }
       } catch (error) {
         alert(error)

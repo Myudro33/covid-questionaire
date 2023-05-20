@@ -59,7 +59,7 @@ export default {
       this.$store.dispatch("personal/lastName", this.lastName);
       this.$store.dispatch("personal/email", this.email);
 
-      this.$router.push({ path: "/covid-questions" });
+      this.$router.push({ name: "covid" });
     },
   },
   components: { Form, PersonalPageAnimation, Field, ErrorMessage },
