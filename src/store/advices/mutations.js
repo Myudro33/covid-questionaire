@@ -1,5 +1,5 @@
-import axios from 'axios'
 import { route } from '../../main.js'
+import { sendResponse } from '../../services/index.js'
 
 export default {
     nonFormalMeetings(state, payload) {
@@ -57,10 +57,9 @@ export default {
           data.tell_us_your_opinion_about_us = payload.advices.tell_us_your_opinion_about_us
         }
         try {
-          const response = await axios.post('https://covid19.devtest.ge/api/create', data)
-          if (response.status === 201) {
+            await sendResponse(data) 
             route.push({ name: 'thanks' })
-          }
+            localStorage.clear()
         } catch (error) {
           alert(error)
         }
