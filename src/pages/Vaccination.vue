@@ -62,10 +62,7 @@
           <ErrorMessage class="text-[#F15524]" name="waiting_for" />
         </div>
         <Feedback
-          v-if="
-            vaccinated === 'yes' &&
-            vaccination_stage === 'first_dosage_and_not_registered_yet'
-          "
+          v-if="vaccinated === 'yes' && vaccination_stage === 'first_dosage_and_not_registered_yet'"
           :message="'lets_register'"
         />
         <Feedback
@@ -73,10 +70,7 @@
           :message="'not_planning'"
         />
         <Feedback
-          v-if="
-            vaccinated === 'no' &&
-            waiting_for === 'had_covid_and_planning_to_be_vaccinated'
-          "
+          v-if="vaccinated === 'no' && waiting_for === 'had_covid_and_planning_to_be_vaccinated'"
           :message="'had_covid_and_planning_to_be_vaccinated'"
         />
         <div class="absolute bottom-12 left-1/2 w-28 flex justify-between z-50">
@@ -85,12 +79,7 @@
           </button>
           <button :disabled="!meta.valid" type="submit">
             <img v-if="meta.valid" src="../assets/vector.svg" alt="vector" />
-            <img
-              v-else
-              class="cursor-not-allowed"
-              src="../assets/vector-gray.svg"
-              alt="vector"
-            />
+            <img v-else class="cursor-not-allowed" src="../assets/vector-gray.svg" alt="vector" />
           </button>
         </div>
       </Form>
@@ -100,42 +89,42 @@
 </template>
 
 <script>
-import { Form, ErrorMessage } from "vee-validate";
-import Feedback from "../components/Feedback.vue";
-import VaccinationPageAnimation from "../components/VaccinationPageAnimation.vue";
+import { Form, ErrorMessage } from 'vee-validate'
+import Feedback from '../components/Feedback.vue'
+import VaccinationPageAnimation from '../components/VaccinationPageAnimation.vue'
 export default {
   components: { Form, ErrorMessage, Feedback, VaccinationPageAnimation },
   data() {
     return {
-      vaccinated: localStorage.getItem("vaccinated") || null,
-      vaccination_stage: localStorage.getItem("vaccination_stage") || null,
-      waiting_for: localStorage.getItem("waiting_for") || null,
-    };
+      vaccinated: localStorage.getItem('vaccinated') || null,
+      vaccination_stage: localStorage.getItem('vaccination_stage') || null,
+      waiting_for: localStorage.getItem('waiting_for') || null
+    }
   },
   watch: {
     vaccinated: (value) => {
-      localStorage.setItem("vaccinated", value);
+      localStorage.setItem('vaccinated', value)
     },
     vaccination_stage: (value) => {
-      localStorage.setItem("vaccination_stage", value);
+      localStorage.setItem('vaccination_stage', value)
     },
     waiting_for: (value) => {
-      localStorage.setItem("waiting_for", value);
-    },
+      localStorage.setItem('waiting_for', value)
+    }
   },
   methods: {
     redirectBack() {
-      this.$router.push({ name: "covid" });
+      this.$router.push({ name: 'covid' })
     },
     onSubmit() {
-      this.$router.push({ name: "advices" });
-      this.$store.dispatch("vaccination/hadVaccine", this.vaccinated);
-      if (this.vaccinated === "yes") {
-        this.$store.dispatch("vaccination/vaccinationStage", this.vaccination_stage);
+      this.$router.push({ name: 'advices' })
+      this.$store.dispatch('vaccination/hadVaccine', this.vaccinated)
+      if (this.vaccinated === 'yes') {
+        this.$store.dispatch('vaccination/vaccinationStage', this.vaccination_stage)
       } else {
-        this.$store.dispatch("vaccination/waiting", this.waiting_for);
+        this.$store.dispatch('vaccination/waiting', this.waiting_for)
       }
-    },
-  },
-};
+    }
+  }
+}
 </script>

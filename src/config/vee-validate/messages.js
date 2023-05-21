@@ -14,7 +14,7 @@ configure({
       names: {
         firstName: 'სახელის',
         lastName: 'გვარის',
-        email: 'მეილი',
+        email: 'მეილი'
       }
     }
   })

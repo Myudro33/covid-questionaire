@@ -1,5 +1,5 @@
-import axiosInstance from "../config/axios-config/axios.js";
+import axiosInstance from '../config/axios-config/axios.js'
 
 export function sendResponse(data) {
-    return axiosInstance.post('', data);
-  }
+  return axiosInstance.post('', data)
+}

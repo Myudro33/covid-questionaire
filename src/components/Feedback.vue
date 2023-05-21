@@ -10,17 +10,15 @@
     </p>
     <p class="mt-5">
       👉 რეგისტრაციის ბმული <br />
-      <a class="text-[#1289AE]" href="https://booking.moh.gov.ge/">
-        https://booking.moh.gov.ge/</a
-      >
+      <a class="text-[#1289AE]" href="https://booking.moh.gov.ge/"> https://booking.moh.gov.ge/</a>
     </p>
   </div>
 </template>
 
 <script>
-import TheAdvice from "./TheAdvice.vue";
+import TheAdvice from './TheAdvice.vue'
 export default {
-  props: ["message"],
-  components: { TheAdvice },
-};
+  props: ['message'],
+  components: { TheAdvice }
+}
 </script>
