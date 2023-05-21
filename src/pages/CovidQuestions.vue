@@ -70,11 +70,11 @@
         </div>
         <div class="absolute bottom-12 left-1/2 w-28 flex justify-between z-50">
           <button type="button" @click="redirectBack">
-            <img class="rotate-180" src="../assets/vector.svg" alt="" />
+            <img class="rotate-180" src="../assets/vector.svg" alt="vector" />
           </button>
           <button :disabled="!meta.valid" type="submit">
-            <img v-if="meta.valid" src="../assets/vector.svg" alt="" />
-            <img v-else class="cursor-not-allowed" src="../assets/vector-gray.svg" alt="" />
+            <img v-if="meta.valid" src="../assets/vector.svg" alt="vector" />
+            <img v-else class="cursor-not-allowed" src="../assets/vector-gray.svg" alt="vector" />
           </button>
         </div>
       </Form>
@@ -107,7 +107,7 @@ export default {
   },
   methods: {
     onSubmit() {
-      this.$router.push({ path: '/vaccination' })
+      this.$router.push({ name: 'vaccination' })
       this.$store.dispatch('covid_questions/hadCovid', this.covid)
       if (this.covid === 'yes') {
         this.$store.dispatch('covid_questions/hadAntibodyTest', this.antibody_test)
@@ -120,7 +120,7 @@ export default {
       }
     },
     redirectBack() {
-      this.$router.push({ path: '/personal' })
+      this.$router.push({ name: 'personal' })
     }
   }
 }

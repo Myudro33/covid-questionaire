@@ -27,8 +27,8 @@
         </div>
         <div class="absolute bottom-12 left-1/2 z-50">
           <button :disabled="!meta.valid" type="submit">
-            <img v-if="meta.valid" src="../assets/vector.svg" alt="" />
-            <img v-else class="cursor-not-allowed" src="../assets/vector-gray.svg" alt="" />
+            <img v-if="meta.valid" src="../assets/vector.svg" alt="vector" />
+            <img v-else class="cursor-not-allowed" src="../assets/vector-gray.svg" alt="vector" />
           </button>
         </div>
       </Form>
@@ -54,7 +54,7 @@ export default {
       this.$store.dispatch('personal/lastName', this.lastName)
       this.$store.dispatch('personal/email', this.email)
 
-      this.$router.push({ path: '/covid-questions' })
+      this.$router.push({ name: 'covid' })
     }
   },
   components: { Form, PersonalPageAnimation, Field, ErrorMessage }

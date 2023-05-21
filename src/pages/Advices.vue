@@ -82,7 +82,7 @@
       <AdvicesPageAnimation />
       <div class="absolute bottom-[-780px] left-1/2 w-28 flex justify-between">
         <button type="button" @click="redirectBack">
-          <img class="rotate-180" src="../assets/vector.svg" alt="" />
+          <img class="rotate-180" src="../assets/vector.svg" alt="vector" />
         </button>
       </div>
     </div>
@@ -126,7 +126,7 @@ export default {
       this.$store.dispatch('advices/postData', this.$store._state.data)
     },
     redirectBack() {
-      this.$router.push({ path: '/vaccination' })
+      this.$router.push({ name: 'advices' })
     }
   }
 }

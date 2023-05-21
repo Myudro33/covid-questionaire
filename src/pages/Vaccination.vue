@@ -66,20 +66,20 @@
           :message="'lets_register'"
         />
         <Feedback
-          v-if="vaccinated === 'no' && waiting_for === 'not_planned'"
-          :message="'not_planned'"
+          v-if="vaccinated === 'no' && waiting_for === 'not_planning'"
+          :message="'not_planning'"
         />
         <Feedback
-          v-if="vaccinated === 'no' && waiting_for === 'had_already'"
-          :message="'had_already'"
+          v-if="vaccinated === 'no' && waiting_for === 'had_covid_and_planning_to_be_vaccinated'"
+          :message="'had_covid_and_planning_to_be_vaccinated'"
         />
         <div class="absolute bottom-12 left-1/2 w-28 flex justify-between z-50">
           <button type="button" @click="redirectBack">
-            <img class="rotate-180" src="../assets/vector.svg" alt="" />
+            <img class="rotate-180" src="../assets/vector.svg" alt="vector" />
           </button>
           <button :disabled="!meta.valid" type="submit">
-            <img v-if="meta.valid" src="../assets/vector.svg" alt="" />
-            <img v-else class="cursor-not-allowed" src="../assets/vector-gray.svg" alt="" />
+            <img v-if="meta.valid" src="../assets/vector.svg" alt="vector" />
+            <img v-else class="cursor-not-allowed" src="../assets/vector-gray.svg" alt="vector" />
           </button>
         </div>
       </Form>
@@ -114,10 +114,10 @@ export default {
   },
   methods: {
     redirectBack() {
-      this.$router.push({ path: '/covid-questions' })
+      this.$router.push({ name: 'covid' })
     },
     onSubmit() {
-      this.$router.push({ path: '/advices' })
+      this.$router.push({ name: 'advices' })
       this.$store.dispatch('vaccination/hadVaccine', this.vaccinated)
       if (this.vaccinated === 'yes') {
         this.$store.dispatch('vaccination/vaccinationStage', this.vaccination_stage)

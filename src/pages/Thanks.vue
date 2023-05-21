@@ -8,7 +8,7 @@
         v-if="bigStar"
         class="absolute right-[58%] top-[38%] w-14 h-14"
         src="../assets/star.svg"
-        alt=""
+        alt="star"
       />
     </transition>
     <transition name="littleStar" appear>
@@ -16,7 +16,7 @@
         v-if="bigStar"
         class="absolute left-[58%] bottom-[40%] w-11 h-11"
         src="../assets/star.svg"
-        alt=""
+        alt="star"
       />
     </transition>
   </div>

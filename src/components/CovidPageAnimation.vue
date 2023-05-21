@@ -1,11 +1,11 @@
 <template>
   <div class="relative -translate-y-10">
-    <img class="z-20 relative" src="../assets/covid.svg" alt="" />
+    <img class="z-20 relative" src="../assets/covid.svg" alt="ill boy" />
     <transition appear>
       <img
         class="h-[200px] absolute left-[105px] top-[260px]"
         src="../assets/covid-anim.png"
-        alt=""
+        alt="red circle"
       />
     </transition>
   </div>
