@@ -1,10 +1,11 @@
 import { defineRule } from 'vee-validate' // npm install vee-validate --save
-import { required, email, min, max } from '@vee-validate/rules' // npm install @vee-validate/rules
+import { required, email, min, max,numeric } from '@vee-validate/rules' // npm install @vee-validate/rules
 
 defineRule('required', required)
 defineRule('email', email)
 defineRule('min', min)
 defineRule('max', max)
+defineRule('number',numeric)
 
 defineRule('redberry_email', (value) => {
   if (!/^[a-z][a-z0-9_.]*@redberry.ge+$/.test(value)) {
