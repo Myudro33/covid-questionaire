@@ -62,6 +62,7 @@
               id="test_number"
             />
             <input-component
+            :rules="'number'"
               placeholder="ანტისხეულების რაოდენობა"
               v-model="antibody"
               id="antibody"

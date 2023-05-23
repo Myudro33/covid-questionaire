@@ -34,10 +34,10 @@ export default {
         ) {
           data.antibodies = {
             test_date: payload.covid_questions.antibodies.test_date,
-            number: payload.covid_questions.antibodies.number
+            number: Number(payload.covid_questions.antibodies.number)
           }
         } else if (payload.covid_questions.antibodies.number !== null) {
-          data.antibodies = { number: payload.covid_questions.antibodies.number }
+          data.antibodies = { number: Number(payload.covid_questions.antibodies.number) }
         } else if (payload.covid_questions.antibodies.test_date !== '') {
           data.antibodies = { test_date: payload.covid_questions.antibodies.test_date }
         }
